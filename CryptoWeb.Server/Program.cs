@@ -14,7 +14,7 @@ namespace CryptoWeb.Server
             builder.Services.InjectFaucet();
             builder.Services.AddCFProxy(builder.Configuration!);
             var app = builder.Build();
-
+            app.MapGet("/", () => "OK");
             var dbInit = new AppDbContextInitializer(app.Services);
             dbInit.Initialize();
 
