@@ -25,4 +25,6 @@ WORKDIR /app
 ENV ASPNETCORE_URLS=http://+:8080
 
 COPY --from=build /app/publish .
+# Copy SQLite database
+COPY CryptoWeb.Server/database.db /app/database.db
 ENTRYPOINT ["dotnet", "CryptoWeb.Server.dll"]
